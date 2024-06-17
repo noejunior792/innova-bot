@@ -2,6 +2,10 @@ const venom = require("venom-bot");
 const axios = require("axios");
 const banco = require("./src/banco");
 
+const treinamento = `
+
+`
+
 venom.create({
     session : "innovatech",
     multidevice: true
@@ -31,13 +35,14 @@ const start = (client) => {
         axios.post("https://api.openai.com/v1/chat/completions",{
             "model":"gpt-3.5-turbo",
             "messages":[
+                {"role":"system", "content":treinamento},
                 {"role":"system", "content":"historico de conversas " + historico.historico},
                 {"role":"user","content":message.body}]
         },{
             headers: header
         })
         .then((response)=>{
-            console.log(response.data.choices[0].content);
+            console.log(response.data.choices[0].message.content);
             historico.historico.push("assistent: " +  response.data.choices[0].content);
             client.sendText(message.from, response.data.choices[0].content)
         })

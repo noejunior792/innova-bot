@@ -1,0 +1,1 @@
+O WhatsApp Atendimento Bot é um sistema automatizado desenvolvido em JavaScript que fornece atendimento ao cliente através do WhatsApp. O bot é capaz de responder automaticamente a mensagens recebidas, fornecer informações e realizar tarefas pré-definidas, melhorando a eficiência e a experiência do usuário.
