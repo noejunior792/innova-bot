@@ -22,7 +22,7 @@ const start = (client) => {
     client.onMessage((message) => {
         const userCadastrado = banco.db.find(numero => numero.num === message.from);
         if(!userCadastrado){
-            console.log("Cadastrando usuario");
+            console.log("Cadastrando usuário");
             banco.db.push({num: message.from, historico : [ ]});
         }
         else{
